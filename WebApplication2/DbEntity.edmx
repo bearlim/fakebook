@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UsuarioAcessoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nmEmpresa" Type="varchar" MaxLength="255" />
+          <Property Name="nmRazaoSocial" Type="varchar" MaxLength="100" />
+          <Property Name="cdCNPJ" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UsuarioAcesso">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nmPrimeiro" Type="varchar" MaxLength="255" />
+          <Property Name="nmSegundo" Type="varchar" MaxLength="50" />
+          <Property Name="nmLogin" Type="varchar" MaxLength="255" />
+          <Property Name="dsEmail" Type="varchar" MaxLength="100" />
+          <Property Name="dsSenha" Type="varchar" MaxLength="255" />
+          <Property Name="dtNascimento" Type="datetime" />
+          <Property Name="dsGenero" Type="varchar" MaxLength="50" />
+          <Property Name="dsPronome" Type="varchar" MaxLength="50" />
+          <Property Name="dsGeneroOutro" Type="varchar" MaxLength="50" />
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="flAdmin" Type="bit" />
+          <Property Name="flDesativado" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="UsuarioAcessoModelStoreContainer">
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuarioAcesso" EntityType="Self.UsuarioAcesso" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UsuarioAcessoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UsuarioAcesso">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nmLogin" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dsSenha" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="flAdmin" Type="Boolean" />
+          <Property Name="flDesativado" Type="Boolean" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="dsEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nmPrimeiro" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nmSegundo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dtNascimento" Type="DateTime" Precision="3" />
+          <Property Name="dsGenero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dsPronome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dsGeneroOutro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="db_projetoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UsuarioAcesso" EntityType="Self.UsuarioAcesso" />
+          <EntitySet Name="Empresa" EntityType="UsuarioAcessoModel.Empresa" />
+        </EntityContainer>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="idEmpresa" />
+          </Key>
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nmEmpresa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nmRazaoSocial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cdCNPJ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UsuarioAcessoModelStoreContainer" CdmEntityContainer="db_projetoEntities">
+          <EntitySetMapping Name="UsuarioAcesso">
+            <EntityTypeMapping TypeName="UsuarioAcessoModel.UsuarioAcesso">
+              <MappingFragment StoreEntitySet="UsuarioAcesso">
+                <ScalarProperty Name="dsGeneroOutro" ColumnName="dsGeneroOutro" />
+                <ScalarProperty Name="dsPronome" ColumnName="dsPronome" />
+                <ScalarProperty Name="dsGenero" ColumnName="dsGenero" />
+                <ScalarProperty Name="dtNascimento" ColumnName="dtNascimento" />
+                <ScalarProperty Name="nmSegundo" ColumnName="nmSegundo" />
+                <ScalarProperty Name="nmPrimeiro" ColumnName="nmPrimeiro" />
+                <ScalarProperty Name="dsEmail" ColumnName="dsEmail" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nmLogin" ColumnName="nmLogin" />
+                <ScalarProperty Name="dsSenha" ColumnName="dsSenha" />
+                <ScalarProperty Name="flAdmin" ColumnName="flAdmin" />
+                <ScalarProperty Name="flDesativado" ColumnName="flDesativado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="UsuarioAcessoModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="cdCNPJ" ColumnName="cdCNPJ" />
+                <ScalarProperty Name="nmRazaoSocial" ColumnName="nmRazaoSocial" />
+                <ScalarProperty Name="nmEmpresa" ColumnName="nmEmpresa" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

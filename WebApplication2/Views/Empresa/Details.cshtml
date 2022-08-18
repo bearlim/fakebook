@@ -1,0 +1,42 @@
+﻿@model WebApplication2.Empresa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nmEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nmEmpresa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nmRazaoSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nmRazaoSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cdCNPJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cdCNPJ)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEmpresa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

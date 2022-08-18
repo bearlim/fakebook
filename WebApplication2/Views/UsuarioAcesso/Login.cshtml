@@ -1,0 +1,116 @@
+﻿@model WebApplication2.UsuarioAcesso
+
+@{
+    ViewBag.Title = "entre ou cadastre-se";
+}
+
+<div class="row align-items-center justify-content-center vh-100">
+    <div class="col-md-7">
+        <img src="https://imgur.com/eRz0R9E.png" class="w-50">
+        <h3 class="mt-3">O Fakebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</h3>
+    </div>
+    <div class="col-md-5">
+
+        @using (Html.BeginForm("Login", "UsuarioAcesso", FormMethod.Post, new { @class = "login-form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="mb-3">
+                @Html.EditorFor(model => model.nmLogin, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email ou telefone", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.nmLogin, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="mb-3">
+                @Html.EditorFor(model => model.dsSenha, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "Senha", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.dsSenha, "", new { @class = "text-danger" })
+            </div>
+            <button class="btn btn-custom btn-lg btn-block mt-3 col-md-12">Login</button>
+            <div class="text-center pt-3 pb-3">
+                @Html.ActionLink("Esqueceu a senha?", "RecuperarSenha")
+                <hr>
+                <button type="button" class="btn btn-success btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#modalNovaConta">Criar nova conta</button>
+            </div>
+
+
+        }
+    <p class="pt-3 text-center"><b>Criar uma Página </b>para uma celebridade, uma marca ou uma empresa.</p>
+    </div>
+
+</div>
+
+<div class="modal fade" id="modalNovaConta" tabindex="-1" aria-labelledby="modalNovaConta" aria-hidden="true">
+    <div class="modal-dialog container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="font-size: 30px"><b>Cadastre-se</b></h5>                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Signup", "UsuarioAcesso", FormMethod.Post, new { @class = "" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.nmPrimeiro, new { htmlAttributes = new { @class = "form-control inputCadastro", @type = "text", @placeholder = "Nome", @required = "required" } })
+                        </div>
+
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.nmSegundo, new { htmlAttributes = new { @class = "form-control inputCadastro", @type = "text", @placeholder = "Sobrenome", @required = "required" } })
+                        </div>
+
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.dsEmail, new { htmlAttributes = new { @class = "form-control inputCadastro", @type = "text", @placeholder = "Email", @required = "required" } })
+                        </div>
+
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.dsSenha, new { htmlAttributes = new { @class = "form-control inputCadastro", @type = "password", @placeholder = "Nova senha", @required = "required" } })
+                        </div>
+
+                        <div class="col-md-12 container">
+                            <div class="row d-flex align-items-center justify-content-center">
+                                <div class="col-md-4">
+                                    <input type="radio" class="inputRadio" name="dsGenero" value="Feminino" required="required" />
+                                    <label class="inputRadio">Feminino</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" class="inputRadio" name="dsGenero" value="Masculino" />
+                                    <label class="inputRadio">Masculino</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="radio" class="inputRadio" name="dsGenero" id="genPersonalizado" value="Personalizado" />
+                                    <label>Personalizado</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 container" id="gerenoPersonalizado" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <select aria-label="Selecione seu pronome" name="dsPronome" class="form-control">
+                                        <option value="">Selecione seu pronome</option>
+                                        <option value="Feminino">Feminino: "Deseje a ela um feliz aniversário!"</option>
+                                        <option value="Masculino">Masculino: "Deseje a ele um feliz aniversário!"</option>
+                                        <option value="Neutro">Neutro: "Deseje a ele(a) um feliz aniversário!"</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.dsGeneroOutro, new { htmlAttributes = new { @class = "form-control inputCadastro mt-3", @placeholder = "Gênero (opcional)" } })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer justify-content-center mt-3">
+                        <button class="btn btn-success">Cadastrar-se</button>
+                    </div>
+                }
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

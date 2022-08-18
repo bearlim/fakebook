@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300i,400,700&display=swap" rel="stylesheet">
+    <title>Fakebook - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        body {
+            background-color: #f0f2f5;
+            font-family: "Nunito Sans";
+        }
+
+        .login-form {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+            background-color: #fff;
+            padding: 25px;
+        }
+
+        h3 {
+            padding-left: 30px;
+            padding-right: 20px;
+        }
+
+        .btn-custom {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            font-size: 20px;
+            line-height: 28px;
+            color: #fff;
+            font-weight: 700;
+            height: 48px;
+        }
+
+        .btn-custom {
+            color: #fff !important;
+        }
+
+        input {
+            height: 52px;
+            font-size: 18px !important;
+            color: #f2f2f2;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0 rgba(13,110,253,.25);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Fakebook", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Início", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Sobre", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    
+    <div class="container">
+        @RenderBody()
+
+        <footer class="fixed-bottom">
+            <p>&copy; @DateTime.Now.Year - Fakebook</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @Scripts.Render("~/bundles/mainEvents")
+    <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

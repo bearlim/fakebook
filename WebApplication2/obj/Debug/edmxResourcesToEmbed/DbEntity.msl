@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UsuarioAcessoModelStoreContainer" CdmEntityContainer="db_projetoEntities">
+    <EntitySetMapping Name="UsuarioAcesso">
+      <EntityTypeMapping TypeName="UsuarioAcessoModel.UsuarioAcesso">
+        <MappingFragment StoreEntitySet="UsuarioAcesso">
+          <ScalarProperty Name="dsGeneroOutro" ColumnName="dsGeneroOutro" />
+          <ScalarProperty Name="dsPronome" ColumnName="dsPronome" />
+          <ScalarProperty Name="dsGenero" ColumnName="dsGenero" />
+          <ScalarProperty Name="dtNascimento" ColumnName="dtNascimento" />
+          <ScalarProperty Name="nmSegundo" ColumnName="nmSegundo" />
+          <ScalarProperty Name="nmPrimeiro" ColumnName="nmPrimeiro" />
+          <ScalarProperty Name="dsEmail" ColumnName="dsEmail" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="nmLogin" ColumnName="nmLogin" />
+          <ScalarProperty Name="dsSenha" ColumnName="dsSenha" />
+          <ScalarProperty Name="flAdmin" ColumnName="flAdmin" />
+          <ScalarProperty Name="flDesativado" ColumnName="flDesativado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="UsuarioAcessoModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="cdCNPJ" ColumnName="cdCNPJ" />
+          <ScalarProperty Name="nmRazaoSocial" ColumnName="nmRazaoSocial" />
+          <ScalarProperty Name="nmEmpresa" ColumnName="nmEmpresa" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

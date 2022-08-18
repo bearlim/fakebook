@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UsuarioAcessoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="idEmpresa" />
+    </Key>
+    <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nmEmpresa" Type="varchar" MaxLength="255" />
+    <Property Name="nmRazaoSocial" Type="varchar" MaxLength="100" />
+    <Property Name="cdCNPJ" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UsuarioAcesso">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nmPrimeiro" Type="varchar" MaxLength="255" />
+    <Property Name="nmSegundo" Type="varchar" MaxLength="50" />
+    <Property Name="nmLogin" Type="varchar" MaxLength="255" />
+    <Property Name="dsEmail" Type="varchar" MaxLength="100" />
+    <Property Name="dsSenha" Type="varchar" MaxLength="255" />
+    <Property Name="dtNascimento" Type="datetime" />
+    <Property Name="dsGenero" Type="varchar" MaxLength="50" />
+    <Property Name="dsPronome" Type="varchar" MaxLength="50" />
+    <Property Name="dsGeneroOutro" Type="varchar" MaxLength="50" />
+    <Property Name="idEmpresa" Type="int" />
+    <Property Name="flAdmin" Type="bit" />
+    <Property Name="flDesativado" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="UsuarioAcessoModelStoreContainer">
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioAcesso" EntityType="Self.UsuarioAcesso" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
